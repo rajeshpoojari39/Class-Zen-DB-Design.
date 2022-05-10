@@ -1,0 +1,33 @@
+
+Table Students as S {
+  id int [pk]
+  user_name varchar
+  first_name varchar
+  last_name varchar
+  batch_no varchar
+}
+
+Table Batch {
+  batch_no varchar [pk]
+  batch_start_date datetime
+  batch_end_date datetime
+  bacth_size int
+}
+
+Table Task {
+  task_ID int [pk]
+  task_desiption varchar
+}
+
+Table Mentor {
+  id varchar [pk]
+  user_name varchar
+  first_name varchar
+  last_name varchar
+  batch_no varchar
+}
+
+Ref: S.id > Batch.batch_no
+Ref: Task.task_ID < S.id
+Ref: Mentor.id < Batch.batch_no
+Ref: S.id > Mentor.id
